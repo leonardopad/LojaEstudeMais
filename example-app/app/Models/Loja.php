@@ -13,6 +13,7 @@ class Loja extends Model
     use HasFactory;
 
     protected $fillable = [
+        'id',
         'nome',
         'cpf',
         'dono',
