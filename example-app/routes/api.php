@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use app\Http\Controllers\LojaController;
+use App\Http\Controllers\LojaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +20,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-Route::get('loja/{id}', 'LojaController@show');
+Route::get('/loja/{id}', 'LojaController@show');
+
+Route::get('/loja', [LojaController::class, 'index']);
+
+Route::post('/loja/create', [LojaController::class, 'store']);
 
 Route::get('/olamundo', function () {
     return 'Hello World';

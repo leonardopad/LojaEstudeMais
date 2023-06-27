@@ -2,17 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\lojaModel;
 use Illuminate\Http\Request;
-use app\models\Loja;
+use App\Models\Loja;
 
-class lojaController extends Controller
+class LojaController extends Controller
 {
+    public function index()
+    {
+        $loja = Loja::all();
+
+        return response()->json($loja);
+    }
+    
     public function store(Request $request)
     {
         $data = $request->validate([
             'nome' => 'required|string',
-            'cpf' => 'required|string',
+            'cnpj' => 'required|string',
             'dono' => 'required|string',
             'endereco' => 'required|string',
         ]);

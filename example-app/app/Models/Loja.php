@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Resources\Json\JsonResource;
-use App\Http\Controllers\lojaController;
+use App\Http\Controllers\LojaController;
 use Illuminate\Http\Request;
 
 class Loja extends Model
