@@ -11,7 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('venda', function (Blueprint $table) {
+            $table->id();
+            $table->string('produto');
+            $table->float('CustoTotal');
+            $table->string('formaPag');
+        });
     }
 
     /**
@@ -19,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::drop('venda');
     }
 };

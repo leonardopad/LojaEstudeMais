@@ -11,7 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('vendedor', function (Blueprint $table) {
+            $table->id();
+            $table->string('nome');
+            $table->string('cpf');
+            $table->string('email');
+            $table->string('endereco');
+            $table->timestamps('dataAdminicao');
+            $table->string('status');
+        });
     }
 
     /**

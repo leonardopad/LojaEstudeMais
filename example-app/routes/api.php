@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use app\Http\Controllers\lojaController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -16,4 +16,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+
+Route::apiResource('loja', app\Http\Controllers\lojaController::class);
+
+Route::get('/olamundo', function () {
+    return 'Hello World';
 });

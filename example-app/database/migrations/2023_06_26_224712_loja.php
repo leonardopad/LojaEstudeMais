@@ -11,14 +11,22 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('loja', function (Blueprint $table) {
+            $table->id();
+            $table->string('nome');
+            $table->string('cnpj');
+            $table->string('dono');
+            $table->string('endereco');
+            $table->timestamps('criadaEm');
+        });
     }
+    
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        //
+        Schema::drop('loja');
     }
 };

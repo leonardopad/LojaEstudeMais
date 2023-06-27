@@ -11,7 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('produto', function (Blueprint $table) {
+            $table->id();
+            $table->string('nome');
+            $table->float('descricao');
+            $table->float('valor');
+            $table->float('quantidade');
+        });
     }
 
     /**
