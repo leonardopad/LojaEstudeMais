@@ -11,14 +11,21 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('vendedor', function (Blueprint $table) {
+        Schema::create('vendedors', function (Blueprint $table) {
             $table->id();
             $table->string('nome');
             $table->string('cpf');
             $table->string('email');
             $table->string('endereco');
-            $table->timestamps('dataAdminicao');
+            $table->timestamps('');
             $table->string('status');
+            $table->foreign('venda_id')
+                ->references('id')
+                ->on('vendedores')
+                ->onDelete('cascade');
+            $table->foreign('loja_id')
+                ->references('id')
+                ->on('lojas');
         });
     }
 
@@ -27,6 +34,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::drop('Vendedor');
+        Schema::drop('Vendedors');
     }
 };

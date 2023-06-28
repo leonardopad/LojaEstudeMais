@@ -11,12 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('produto', function (Blueprint $table) {
+        Schema::create('produtos', function (Blueprint $table) {
             $table->id();
             $table->string('nome');
             $table->float('descricao');
             $table->float('valor');
             $table->float('quantidade');
+            $table->timestamps('');
+            $table->foreign('venda_id')
+                ->references('id')
+                ->on('vendas')
+                ->onDelete('cascade');
         });
     }
 
@@ -25,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::drop('Produto');
+        Schema::drop('Produtos');
     }
 };

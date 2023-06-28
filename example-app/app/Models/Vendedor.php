@@ -19,5 +19,9 @@ class Vendedor extends Model
         'status'
     ];
 
+    public function vendas()
+    {
+        return $this->hasMany(Venda::class);
+    }
 
 }

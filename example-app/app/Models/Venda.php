@@ -11,9 +11,18 @@ class Venda extends Model
     
     protected $fillable = [
         'id',
-        'nome',
-        'descricao',
         'valor',
         'quantidade'
     ];
+
+    public function vendedor()
+    {
+        return $this->belongsTo(Vendedor::class);
+    }
+
+    public function produtos()
+    {
+        return $this->hasMany(Produto::class);
+    }
+
 }

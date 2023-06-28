@@ -17,5 +17,9 @@ class Produto extends Model
         'quantidade'
     ];
 
+    public function venda()
+    {
+        return $this->belongsTo(Venda::class);
+    }
 
 }

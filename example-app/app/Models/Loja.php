@@ -20,6 +20,10 @@ class Loja extends Model
         'endereco',
     ];
 
+    public function vendedor()
+    {
+        return $this->hasMany(Vendedor::class);
+    }
     
 }
 

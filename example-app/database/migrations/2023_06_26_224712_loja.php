@@ -18,6 +18,9 @@ return new class extends Migration
             $table->string('dono');
             $table->string('endereco');
             $table->timestamps('');
+            $table->foreign('vendedor_id')
+                    ->references('id')
+                    ->on('vendedors');
         });
     }
     
@@ -27,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::drop('Loja');
+        Schema::drop('Lojas');
     }
 };

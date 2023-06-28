@@ -11,11 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('venda', function (Blueprint $table) {
+        Schema::create('vendas', function (Blueprint $table) {
             $table->id();
             $table->string('produto');
             $table->float('CustoTotal');
             $table->string('formaPag');
+            $table->foreign('vendedor_id')
+                ->references('id')
+                ->on('vendedors')
+                ->onDelete('cascade');
         });
     }
 
@@ -24,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::drop('Venda');
+        Schema::drop('Vendas');
     }
 };
